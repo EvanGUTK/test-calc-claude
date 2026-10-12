@@ -1,0 +1,12 @@
+node_modules/
+dist/
+history.json
+history.json.lock
+history.json.*.tmp
+history.json.corrupt-*
+.env*
+!.env.example
+CLAUDE.local.md
+.claude/settings.local.json
+.DS_Store
+*.log

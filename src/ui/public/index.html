@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/assets/client/main.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Financial &amp; Scientific Calculator</h1>
+      <fieldset class="angle-toggle">
+        <legend>Angle mode</legend>
+        <label><input type="radio" name="angle-mode" value="rad" checked /> RAD</label>
+        <label><input type="radio" name="angle-mode" value="deg" /> DEG</label>
+      </fieldset>
+    </header>
+
+    <main class="layout">
+      <section class="panel calculator" aria-labelledby="calculator-heading">
+        <h2 id="calculator-heading">Calculate</h2>
+        <form id="calc-form" autocomplete="off" novalidate>
+          <label for="expression">Expression or assignment</label>
+          <input
+            id="expression"
+            name="expression"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            placeholder="e.g. compound(1000, 0.05, 12, 10)  or  rate = 0.05"
+            maxlength="500"
+            aria-describedby="diagnostic"
+            autofocus
+          />
+          <div id="preview" class="preview" aria-hidden="true"></div>
+          <p id="diagnostic" class="diagnostic" role="status" aria-live="polite"></p>
+          <button type="submit">Calculate</button>
+        </form>
+
+        <output id="result" class="result" aria-live="polite"></output>
+
+        <details class="help">
+          <summary>Syntax and functions</summary>
+          <ul>
+            <li>Operators: <code>+ - * / % ^</code>, factorial <code>5!</code>, parentheses, constants <code>pi</code> <code>e</code></li>
+            <li>Trig (uses the angle mode): <code>sin cos tan asin acos atan atan2(y, x)</code></li>
+            <li>Logs and roots: <code>ln log10 log2 exp sqrt cbrt</code></li>
+            <li>Other: <code>abs floor ceil round(x, digits) pow min max fact</code></li>
+            <li><code>compound(P, r, n, t)</code> = P(1 + r/n)^(nt)</li>
+            <li><code>pmt(P, annualRate, years, perYear = 12)</code> = loan payment</li>
+            <li><code>npv(rate, C0, C1, ...)</code> = sum of C<sub>t</sub> / (1 + rate)<sup>t</sup></li>
+            <li>Variables: <code>x = 42</code>. <code>ans</code> is the previous result. Arrow up/down recalls history.</li>
+          </ul>
+        </details>
+      </section>
+
+      <aside class="side">
+        <section class="panel" aria-labelledby="variables-heading">
+          <h2 id="variables-heading">Variables</h2>
+          <ul id="variables" class="variables"></ul>
+          <p id="variables-empty" class="empty">No variables yet. Try <code>rate = 0.05</code>.</p>
+        </section>
+
+        <section class="panel" aria-labelledby="history-heading">
+          <div class="panel-title">
+            <h2 id="history-heading">History</h2>
+            <button type="button" id="clear-history" class="secondary">Clear</button>
+          </div>
+          <ol id="history" class="history" tabindex="0" aria-label="Calculation history, newest first"></ol>
+          <p id="history-empty" class="empty">Nothing calculated yet.</p>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "test-calc-claude",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zero-dependency financial and scientific calculator with an AST math engine, JSON persistence and a web dashboard",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.client.json --noEmit",
+    "build": "node scripts/build.mjs",
+    "start": "node dist/ui/main.js",
+    "test": "node --test \"src/tests/**/*.test.ts\"",
+    "check": "npm run typecheck && npm test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}

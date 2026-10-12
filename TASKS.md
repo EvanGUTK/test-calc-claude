@@ -1,14 +1,19 @@
 # Tasks
 
-- [IN_PROGRESS by LEAD] T1 Docs scaffold (PROJECT / ARCHITECTURE / TASKS)
-- [ ] T2 Project tooling (tsconfig, build script, package scripts)
-- [ ] T3 Engine: tokenizer + lexer
-- [ ] T4 Engine: Shunting-Yard parser (depends T3)
-- [ ] T5 Engine: evaluator, functions, precision (depends T4)
-- [ ] T6 Engine: analyzer for live validation (depends T4)
-- [ ] T7 Storage: codec + locked atomic JSON store
-- [ ] T8 Service: calculator service (depends T5, T7)
-- [ ] T9 UI: HTTP server + API (depends T8)
-- [ ] T10 UI: browser client (depends T9)
-- [ ] T11 Tests: unit + integration, all green
-- [ ] T12 Live verification on a port
+- [COMPLETED] T1 Docs scaffold (PROJECT / ARCHITECTURE / TASKS)
+- [COMPLETED] T2 Project tooling (tsconfig, build script, package scripts)
+- [COMPLETED] T3 Engine: tokenizer + lexer
+- [COMPLETED] T4 Engine: Shunting-Yard parser
+- [COMPLETED] T5 Engine: evaluator, functions, precision
+- [COMPLETED] T6 Engine: analyzer for live validation
+- [COMPLETED] T7 Storage: codec + locked atomic JSON store
+- [COMPLETED] T8 Service: calculator service
+- [COMPLETED] T9 UI: HTTP server + API
+- [COMPLETED] T10 UI: browser client
+- [COMPLETED] T11 Tests: 153 passing (unit + integration)
+- [COMPLETED] T12 Live verification on port 3210 (HTTP/API level)
+
+## Open
+
+- Browser behavior of `src/ui/client` (live highlighting, keyboard recall) has not been exercised in a real browser; there is no browser test harness yet.
+- Branch `feat/calculator` is not merged to `main`; awaiting review.
